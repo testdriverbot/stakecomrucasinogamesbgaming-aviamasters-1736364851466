@@ -1,0 +1,20 @@
+version: 4.1.33
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Complete the CAPTCHA verification.
+    commands:
+      - command: hover-text
+        text: Verify you are human
+        description: CAPTCHA checkbox
+        action: click
+  - prompt: >-
+      Assert that the verification is successful and the page proceeds.  # Use
+      the content of the file from the environment
+    commands:
+      - command: wait-for-text
+        text: Welcome to stake.com
+      - command: assert
+        expect: the page has proceeded to the next step
