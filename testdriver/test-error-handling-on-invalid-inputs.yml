@@ -1,0 +1,46 @@
+version: 4.1.33
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Navigate to a form or input area.
+    commands:
+      - command: hover-text
+        text: Verify you are human
+        description: verification checkbox
+        action: click
+  - prompt: Enter invalid data or leave fields blank.
+    commands:
+      - command: hover-text
+        text: Verify you are human
+        description: verification checkbox
+        action: click
+      - command: press-keys
+        keys:
+          - tab
+      - command: type
+        text: invalid_data
+  - prompt: Enter invalid data or leave fields blank.
+    commands:
+      - command: hover-text
+        text: Verify you are human
+        description: verification checkbox
+        action: click
+      - command: press-keys
+        keys:
+          - tab
+      - command: press-keys
+        keys:
+          - tab
+      - command: press-keys
+        keys:
+          - enter
+      - command: hover-image
+        description: CAPTCHA verification checkbox
+        action: click
+      - command: press-keys
+        keys:
+          - tab
+          - tab
+          - enter
